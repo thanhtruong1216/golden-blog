@@ -1,0 +1,6 @@
+- if current_user.id != post.user.id
+  .follow-form data-user-id="#{post.user.id}"
+    - if following?(post.user)
+      = render "users/unfollow", user: post.user
+    - else
+      = render "users/follow", user: post.user

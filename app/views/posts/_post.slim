@@ -1,0 +1,26 @@
+.posts__post-wrapper
+  .sub-header
+    .avatar-wrapper
+      = link_to user_path(post.user) do
+        .avatar-linear-wrapper
+          - if post.user.avatar.attached?
+            = image_tag post.user.avatar.service_url, loading: 'lazy', class: 'linear-avatar'
+          - else
+            = image_tag 'user-alt-solid.svg', loading: 'lazy', class: 'linear-avatar'
+      = post.user.user_name
+    = render 'users/follow_form', post: post
+
+  article.posts__post
+    - if post.photo.attached?
+      = image_tag post.photo.service_url, loading: 'lazy', class: 'posts__photo'
+    - else
+      = image_tag 'background_search_desktop.jpg', loading: 'lazy', alt: 'thumbnail-image', class: 'posts__photo'
+
+    p.posts__post-content
+      = post.content
+
+    = render 'actions', post: post
+    .posts__comments-count
+      = render 'comments/comments_count', post: post
+    div.posts__add-comment-box
+      = render 'add_comment_form', post: post

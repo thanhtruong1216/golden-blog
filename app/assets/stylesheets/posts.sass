@@ -1,0 +1,326 @@
+@import 'bootstrap-sprockets'
+@import 'bootstrap'
+
+@import 'mixins'
+@import 'variables'
+@import 'header'
+@import 'general'
+
+.posts
+  position: relative
+  top: 30pt
+  display: flex
+  flex-direction: column
+  justify-content: center
+  padding-top: 20pt
+  a
+    @include link
+
+  &__actions
+    display: flex
+    align-items: center
+    padding: 10pt 0 10pt 10pt
+    .like-wrapper
+      display: flex
+      flex-direction: column
+      div:first-child
+        display: flex
+        padding-bottom: 10pt
+        > div
+          padding-left: 20pt
+
+  &__photo
+    @include thumbnail-image
+
+  &__wrapper
+    margin: 20pt 0
+    margin-bottom: 20pt
+
+  &__post-wrapper
+    border: $border-line
+    margin-bottom: 30pt
+    padding-bottom: 10pt
+
+  &__comments-count
+    padding: 0 10pt
+
+  &__add-comment-box
+    display: none
+
+  &__post-content
+    padding: 10pt 10pt 0 10pt
+    display: -webkit-box
+    overflow: hidden
+    text-overflow: ellipsis
+    -webkit-line-clamp: 3
+    -webkit-box-orient: vertical
+
+  .sub-header
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding-left: 10pt
+    padding-right: 10pt
+    padding-top: 10pt
+    > div
+      display: flex
+      align-items: center
+
+  .fb-share-button
+    padding-top: 2pt
+
+
+.post
+  position: relative
+  top: 48pt
+
+  &__header-desktop
+    display: none
+
+  &__fixed-box
+    display: none
+
+  &__add-comment-mobile
+    .post__comments
+      padding: 10pt
+      .comments:last-child
+        padding-bottom: 50pt
+    form
+      display: flex
+      border: $border-line
+      border-radius: 20pt
+      height: 38pt
+      line-height: 35pt
+      padding: 0 20pt
+      width: 80vw
+      margin-right: 10pt
+      textarea, input
+        background-color: transparent
+        border: none
+        padding: 0
+      input[type='submit']
+        display: flex
+        justify-content: flex-end
+      textarea
+        line-height: 40pt
+    .sub-header
+      .avatar-linear-wrapper
+        margin-left: 10pt
+
+  &__add-comment-wrapper
+    display: flex
+    justify-content: space-between
+    border-bottom: $border-line
+    padding: 10pt 0
+    background: #efefef
+    align-items: center
+    .avatar-simple-wrapper
+      margin-left: 10pt
+
+  &__add-comment
+    border-radius: 20px
+    padding: 10pt 0
+    margin: 20pt 0
+
+  &__content
+    display: none
+    flex: 1.5
+    img
+      width: 100%
+
+  &__comments-wrapper
+    flex: 1
+
+  &__title-fixed
+    position: fixed
+    border-bottom: $border-line
+    z-index: 99
+    background-color: white
+    width: 100%
+
+  &__cover-image
+    object-fit: cover
+    height: 400pt
+
+  &__actions
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    padding: 10pt 0
+    div
+      padding-right: 20pt
+      display: flex
+      align-items: center
+
+  &__icon
+    width: 20pt
+
+  &__edit-icon
+    width: 25pt
+
+.fb-share-button
+  padding-top: 2pt
+
+.new-post
+  padding: 50pt 20pt 0 20pt
+
+@media screen and (min-width: 767px)
+  .posts
+    top: 50pt
+    &__post
+      display: flex
+      flex-direction: column
+      margin: 0 auto
+
+    .sub-header
+      padding: 10pt 20pt 0 20pt
+      .avatar-wrapper
+        display: flex
+        align-items: center
+
+    &__comments-count
+      padding: 0 0 10pt 20pt
+
+    &__likes-count
+      padding: 10pt 0 0 20pt
+
+    &__actions
+      padding-left: 20pt
+
+    &__post-content
+      padding-left: 20pt
+
+    &__photo
+      width: 100%
+      object-fit: cover
+      height: 300pt
+
+    &__add-comment-box
+      display: flex
+      border-top: $border-line
+
+      form
+        padding: 0 20pt
+        height: 50pt
+        align-items: center
+      textarea
+        border: none
+        padding-top: 10pt
+        margin: 0
+      @include add-comment-box
+
+    &__add-comment-mobile
+      display: none
+
+  .new-post
+    width: 500pt
+    margin: 0 auto 0 auto
+
+  .post
+    display: flex
+    border: $border-line
+    position: relative
+    top: 80pt
+    height: 400pt
+
+    .like-wrapper
+      div:first-child
+        padding-bottom: 0
+
+    .posts__add-comment-box
+      border-bottom: none
+      form
+        padding-left: 10pt
+
+    .sub-header
+      width: 100%
+
+    &__ations-btns
+      display: flex
+      align-items: center
+      > div:first-child
+        display: flex
+        align-items: center
+        > div
+          display: none
+      > div:last-child
+        display: none
+
+    &__actions-desktop
+      background-color: white
+      z-index: 9999
+
+    &__count-likes-btn
+      display: flex
+      align-items: center
+      padding-left: 20pt
+      padding-top: 10pt
+
+    &__header-desktop
+      flex: 1
+      > div:first-child
+        border-bottom: $border-line
+      > div:last-child
+        border-top: $border-line
+      > div:not(.post__actions-desktop)
+        padding: 10pt
+
+    &__comments-desktop-wrapper
+      height: 217pt
+      overflow: scroll
+      form
+        display: flex
+
+    &__header-desktop
+      display: block
+
+    &__comments-desktop
+      display: initial
+      position: relative
+      top: 20pt
+
+    &__add-comment-mobile
+      display: none
+
+    &__add-comment-desktop-wrapper
+      display: flex
+      padding-left: 10pt
+      input
+        border: none
+      @include add-comment-box
+      padding-right: 15pt
+
+    &__comments-wrapper
+      display: flex
+      border: $border-line
+
+    &__content
+      display: block
+      flex: 2
+      h1
+        display: none
+    &__comments
+      > div
+        display: flex
+        flex-direction: column
+        padding-bottom: 10pt
+
+    .posts__actions
+      padding-left: 10pt
+
+  .new-post
+    padding-top: 50pt
+
+@media screen and (min-width: 767px)
+  .post
+    max-width: 520pt
+    margin: 0 auto
+
+@media screen and (min-width: 1023px)
+  .posts
+    width: 600pt
+    margin: 0 auto
+
+  .post
+    max-width: 600pt
+    margin: 0 auto

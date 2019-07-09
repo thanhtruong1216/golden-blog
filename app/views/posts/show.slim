@@ -1,0 +1,42 @@
+
+
+section.post
+  .post__content
+    - if @post.photo.attached?
+      = image_tag @post.photo, class: 'post__cover-image'
+    - else
+      = image_tag 'background_search_desktop.jpg', loading: 'lazy', alt: 'thumbnail-image', class: 'post__cover-image'
+  .post__add-comment-mobile
+    .post__add-comment-wrapper
+      .avatar-simple-wrapper
+        = image_tag "user-alt-solid.svg", loading: 'lazy', class: "simple-avatar"
+      = render 'add_comment_form', post: @post
+    .sub-header
+      .avatar-linear-wrapper
+        = image_tag 'user-alt-solid.svg', loading: 'lazy', class: "linear-avatar"
+      = @post.user.user_name
+    - if @post.comments
+      .post__comments
+        = render @post.comments.order(created_at: :desc), post: @post
+
+  .post__header-desktop
+    .sub-header
+      .avatar-linear-wrapper
+        = image_tag 'user-alt-solid.svg', loading: 'lazy', class: "linear-avatar"
+      = @post.user.user_name
+    - if @post.comments
+      .post__comments-desktop-wrapper
+        .post__comments
+          = render @post.comments.order(created_at: :desc)
+
+    .post__actions-desktop
+      = render 'actions', post: @post
+      div.posts__add-comment-box
+        = render 'add_comment_form', post: @post
+
+- content_for :meta
+  meta property="og:url"           content=post_url(@post)
+  meta property="og:type"          content="website"
+  meta property="og:title"         content="Wanderlust"
+  meta property="og:description"   content="Your description"
+  meta property="og:image"         content="https://www.your-domain.com/path/image.jpg"

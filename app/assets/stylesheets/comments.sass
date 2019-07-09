@@ -1,0 +1,50 @@
+.comment
+  p
+    font-size: 10pt
+
+  &__comment
+    display: flex
+
+  &__contents
+    display: flex
+    padding-top: 10pt
+    align-items: center
+    justify-content: cenrer
+    p
+      white-space: pre
+      margin-bottom: 0
+      
+  &__content
+      display: flex
+
+@media screen and (max-width: 767px)
+  .comment
+    padding-bottom: 10pt
+    &__actions
+      display: flex
+      align-items: center
+      justify-content: space-between
+      width: 80vw
+
+    &__three-dots
+      display: none
+
+@media screen and (min-width: 768px)
+  .comment
+    &__actions
+      display: flex
+      align-items: center
+      justify-content: space-between
+      width: 150pt
+
+    &__content
+      display: flex
+
+    &__comment
+      display: flex
+      flex-direction: row
+      display: -webkit-box
+      overflow: hidden
+      text-overflow: ellipsis
+      -webkit-line-clamp: 2
+      -webkit-box-orient: vertical

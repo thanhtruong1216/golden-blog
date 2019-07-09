@@ -1,24 +1,22 @@
-# README
+# <img src='app/assets/images/studiovinari-brands.svg?raw=true' width="50" height="50"/> Golden blog with Ruby on Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Clone project:
+- `$git clone git@github.com:thanhtruong1216/golden-blog.git`
 
-Things you may want to cover:
+## Run server
+- `$rails server` or `$rails s`
 
-* Ruby version
+## Run test
+- To run all test: `$rspec`
+- To run specify file: `$rspec file path`
+- Example : `$rspec ./spec/models/post_spec.rb`
 
-* System dependencies
+## The type of commit messages
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- feat: a new feature
+- fix: a bug fix
+- docs: changes to documentation
+- style: formatting, missing semi colons, etc; no code change
+- refactor: refactoring production code
+- test: adding tests, refactoring test; no production code change
+- chore: updating build tasks, package manager configs, etc; no production code change

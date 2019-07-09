@@ -1,0 +1,21 @@
+div
+  = button_to unlike_post_path(post), method: :post, class: 'heart-btn', remote: true do
+    div
+      = image_tag 'heart-red.svg', loading: 'lazy', class: 'small-icon'
+  div
+    = link_to post do
+      = image_tag 'comment-regular.svg', loading: 'lazy', class: 'small-icon'
+
+  - if post.user.id == current_user.id
+    div
+      = link_to edit_post_path(post) do
+        = image_tag 'edit-regular.svg', loading: 'lazy', class: 'small-icon'
+  div class="fb-share-button" data-href=post_url(post) data-layout="button_count"
+
+- if post.likes_count == 0
+  div
+    = t('post.likes.people_like_first')
+- else
+  div
+    =<> post.likes_count
+    = t('post.likes.people_liked')

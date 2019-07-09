@@ -1,0 +1,17 @@
+- if user_signed_in?
+  section.desktop-header
+    header.desktop-header__wrapper
+      div
+        = image_tag 'studiovinari-brands.svg', loading: 'lazy', class: 'large-icon'
+        = link_to 'Wandergram', root_path, class: 'app-name'
+
+      = render 'layouts/search'
+
+      ul
+        li = link_to t('header.new_post'), new_post_path
+        li = link_to t('header.logout'), destroy_user_session_path, method: :delete
+        li = link_to t('header.profile'), current_user
+
+      div
+        = link_to "EN", locale:"en"
+        = link_to "VI", locale:"vi"

@@ -1,0 +1,29 @@
+@import "variables"
+.footer
+  display: flex
+  justify-content: space-between
+  border-top: $border-line
+  margin-top: 10pt
+  padding: 10pt 20pt
+  position: fixed
+  z-index: 9999
+  bottom: 0
+  left: 0
+  right: 0
+  background-color: white
+
+  &__box
+    display: flex
+    flex: 1
+    justify-content: center
+
+  &__box:first-child
+    justify-content: flex-start
+
+  &__box:last-child
+    justify-content: flex-end
+
+
+@media only screen and (min-width: 769px)
+  .footer
+    display: none

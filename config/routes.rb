@@ -1,3 +1,25 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  scope "(:locale)", locale: /vi|en/ do
+    root 'posts#index'
+    devise_for :users, :controllers => { registrations: 'registrations' }
+
+    resources :users do
+      member do
+        get :following, :followers
+      end
+      collection do
+        get :search
+      end
+    end
+
+    resources :posts do
+      resources :comments
+      member do
+        post :like
+        post :unlike
+      end
+    end
+
+    resources :relationships,       only: [:create, :destroy]
+  end
 end

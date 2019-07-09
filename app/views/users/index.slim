@@ -1,0 +1,22 @@
+section.users
+  - if @users.count > 0
+    .users__search-result-title
+      =<> @users.count
+      - if @users.count == 1
+        = t('users.search.user')
+      - elsif @users.count > 1
+        = t('users.search.users')
+      - else
+        = t('users.search.nothing')
+  - @users.each do |user|
+      .users__short-info
+        = link_to user_path(user) do
+          .sub-header
+              .avatar-wrapper
+                .avatar-linear-wrapper
+                  = image_tag 'user-alt-solid.svg', loading: 'lazy', class: 'linear-avatar'
+          p
+            = user.user_name
+        div
+          p
+            = user.email

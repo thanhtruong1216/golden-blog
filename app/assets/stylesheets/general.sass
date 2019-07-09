@@ -1,0 +1,146 @@
+@import 'bootstrap-sprockets'
+@import 'bootstrap'
+@import "variables"
+@import "mixins"
+
+body
+  font-family: 'Share Tech Mono'
+
+p
+  font-size: 14pt
+
+button
+  white-space: nowrap
+  &:focus
+    outline: none
+
+a
+  text-decoration: none
+  color: black
+  &:focus
+    outline: none
+    text-decoration: none
+  &:hover
+    outline: none
+    text-decoration: none
+
+.medium-icon
+  width: 30pt
+
+.large-icon
+  width: 40pt
+  height: auto
+
+.small-icon
+  width: 20pt
+  height: auto
+
+.heart-btn
+  .small-icon
+    max-height: 20pt
+
+.mini-icon
+  width: 15pt
+
+.app-name
+  font-size: 20pt
+  padding-left: 10pt
+
+input
+  margin: 0
+  &:focus
+    outline: none
+
+.new-post
+  textarea
+    height: 100pt
+  &:focus
+    outline: none
+    box-shadow: none
+
+textarea
+  line-height: 12pt
+  &:focus
+    outline: none
+    box-shadow: none
+
+img
+  object-fit: cover
+
+.sub-header
+  display: flex
+  margin-bottom: 10pt
+  align-items: center
+  background-color: white
+
+.avatar-linear-wrapper
+  @include avatar-wrapper
+  background-image: $border-linear-avatar
+  padding: 10px
+  width: 40pt
+  height: 40pt
+
+.avatar-simple-wrapper
+  @include avatar-wrapper
+  border: 1px solid black
+  width: 30pt
+  height: 30pt
+
+.linear-avatar
+  @include avatar
+  width: 33pt
+  height: 33pt
+
+.simple-avatar
+  @include avatar
+  width: 28pt
+
+.comment-actions
+  display: flex
+  align-items: center
+  justify-content: flex-end
+  h6
+    padding: 0
+    margin: 0
+  h6:last-child
+    padding-left: 10pt
+
+.heart-btn
+  background-color: transparent
+  border: none
+  padding: 0
+  height: auto
+
+.unfollow-btn
+  background-color: #bbb
+
+input, textarea, select, .uneditable-input
+  border: 1px solid #bbb
+  width: 100%
+  margin-bottom: 15px
+  @include box_sizing
+
+input
+  height: auto !important
+
+#error_explanation
+  color: red
+  ul
+    color: red
+    margin: 0 0 30px 0
+
+.field_with_errors
+  @extend .has-error
+  .form-control
+    color: red
+
+@media screen and (max-width: 475px)
+  h1
+    font-size: 24pt
+  .sub-header
+    padding: 10pt 0
+    border-bottom: $border-line
+
+  .users
+    .sub-header
+      border-bottom: none

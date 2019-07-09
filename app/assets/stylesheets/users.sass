@@ -1,0 +1,230 @@
+@import "variables"
+@import "general"
+
+.users
+  position: relative
+  top: 60pt
+  padding: 10pt 20pt
+  p
+    font-size: 12pt
+
+  &__short-info
+    a:first-child
+      display: flex
+      align-items: center
+
+  &__search-result-title
+    padding-botom: 20pt
+    font-size: 16pt
+
+  &__short-info
+    display: flex
+    border-bottom: $border-line
+    padding-top: 10pt
+    font-size: 10pt
+    flex-direction: column
+
+.user-form-container
+  padding: 20pt
+  max-width: 500pt
+  margin: 0 auto 0 auto
+  position: relative
+  top: 50pt
+  h1, h4
+    text-align: center
+  h1
+    margin: 0
+    padding: 15pt 0
+  h4
+    color: #999
+  form
+    padding: 20pt 0
+
+  .form-check
+    display: flex
+    .form-check-input
+      width: 20pt
+
+.user-authenticate-message
+  white-space: nowrap
+  text-align: center
+  font-size: 12pt
+
+.forgot-password-text
+  text-align: center
+  padding: 20pt 0
+  font-size: 12pt
+
+.user-show-header
+  display: flex
+  justify-content: space-between
+  position: fixed
+  top: 10pt
+  z-index: 9999
+  background-color: white
+  width: 100vw
+  border-bottom: $border-line
+  padding: 0 20pt
+
+
+.user
+  text-align: center
+  padding-top: 70pt
+
+  &__name-edit-group
+    display: none
+
+  &__avatar
+    width: 70pt
+    height: 70pt
+    border-radius: 50%
+    border: $border-line
+
+  &__flex-box
+    display: flex
+    justify-content: space-around
+    align-items: center
+
+  &__photos
+    padding-bottom: 50pt
+    display: grid
+    grid-template-columns: 200pt
+    grid-row-gap: 20pt
+    justify-content: center
+    padding-top: 50pt
+    .thumbnail-photo-wrapper
+      .thumbnail-photo
+        width: 200pt
+        height: 150pt
+
+  h1
+    padding-bottom: 10pt
+
+  > div:first-child
+    display: flex
+    align-items: center
+
+  &__follows
+    display: flex
+    justify-content: space-between
+    padding: 0 20pt
+    border-top: $border-line
+    border-bottom: $border-line
+    max-width: 500pt
+    margin: 10pt auto 0 auto
+    > div
+      padding: 10pt 0
+    p
+      font-size: 12pt
+      margin: 0
+      padding-right: 5pt
+
+  &__edit-btn
+    width: initial
+    padding: 10pt 25pt
+    border: $border-line
+    margin-left: 20pt
+
+  .footer-container
+    display: block
+
+  &__edit-wrapper
+    display: flex
+    align-items: center
+
+  &__fullname-box
+    display: flex
+    flex-direction: column
+    flex-direction: row
+    form
+      position: absolute
+      top: -19pt
+      #user_avatar
+        padding: 27pt 0
+    > div
+      display: flex
+      flex-direction: column
+      align-items: center
+      position: relative
+      p
+        padding-top: 10pt
+
+
+@media screen and(min-width: 767px)
+  .users
+    margin: 0 auto
+    max-width: 500pt
+    top: 80pt
+
+    &__short-info
+      flex-direction: row
+      justify-content: space-between
+      align-items: center
+
+  .user
+    max-width: 800pt
+    margin: 0 auto
+    position: relative
+    top: 30pt
+    > div:first-child
+      justify-content: space-between
+
+    &__edit-btn
+      padding: 5pt 10pt
+
+    &__avatar
+      width: 120pt
+      height: 120pt
+      position: relative
+
+    &__name-edit-group
+      display: flex
+
+    &__fullname-box
+      > div
+        flex-direction: column
+        padding-left: 50pt
+        p
+          margin: 0
+          position: absolute
+          top: 70pt
+          left: 220pt
+          white-space: nowrap
+
+    &__photos
+      display: grid
+      grid-template-columns: repeat(2, 200pt)
+      grid-gap: 20pt
+      justify-items: center
+
+    &__follows
+      margin-top: 50pt
+      border: none
+      position: absolute
+      left: 200pt
+      top: 64pt
+      justify-content: initial
+      > div
+        display: flex
+        padding-right: 10pt
+
+    &__fullname
+      position: relative
+      left: 156pt
+      bottom: 48pt
+
+@media screen and(min-width: 1023px)
+  .user
+    padding-top: 80pt
+    position: relative
+    width: 500pt
+
+    &__photos
+      grid-template-columns: repeat(3, 200pt)
+
+    &__follows
+      > div
+        padding: 20pt 20pt 20pt 0
+
+    &__fullname
+      left: 158pt

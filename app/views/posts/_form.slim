@@ -1,0 +1,5 @@
+= simple_form_for @post do |f|
+  = render 'shared/error_messages'
+  = f.input :photo, class: 'form-control'
+  = f.text_area :content, class: 'form-control'
+  = f.button :submit, yield(:button_text), class: "btn btn-primary"

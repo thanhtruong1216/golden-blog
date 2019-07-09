@@ -1,0 +1,31 @@
+vi:
+  header:
+    logout: 'Đăng xuất'
+    profile: 'Hồ sơ'
+    new_post: 'Đăng bài'
+  users:
+    index:
+      message_search: 'people được tìm thấy'
+    search:
+      users_count: 'người dùng đã đăng ký'
+      user: 'người dùng'
+      users: 'người dùng'
+      nothing: 'không có người dùng phù hợp'
+  relationship:
+    follow: 'Theo dõi'
+    unfollow: 'Hủy theo dõi'
+    follower: 'người đã theo dõi'
+    following: 'người đang theo dõi'
+    posts: 'bài viết'
+  post:
+    likes:
+      people_like_first: 'Hãy là người like đầu tiên'
+      people_liked: 'người đã thích'
+    comments:
+      add_comment: 'Bình luận...'
+      post: 'Đăng'
+      view: 'Hiển thị '
+      view_all: 'Hiển thị'
+      comment: 'bình luận'
+      comments: 'bình luận'
+      no_comment: 'Không có bình luận nào'

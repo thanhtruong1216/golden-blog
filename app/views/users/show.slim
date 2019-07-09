@@ -1,0 +1,82 @@
+- if @user.id == current_user.id
+  section.user
+    .user__flex-box
+      .user__fullname-box
+        div
+          - if @user.avatar.attached?
+            = image_tag @user.avatar, loading: 'lazy', class: 'user__avatar'
+          - else
+            div.user__avatar
+              = image_tag "user-alt-solid.svg", loading: 'lazy', class: 'user__avatar'
+          p.user__fullname
+            = @user.full_name
+        div
+          .user__name-edit-group
+            h2
+              = @user.user_name
+            .user__edit-wrapper 
+              .user__edit-btn
+                = link_to "Edit Profile", edit_user_registration_path
+
+    .user__follows
+      div
+        p
+          = @user.posts.count
+        p
+          = t('relationship.posts')
+      div
+        p
+          = @user.followers.count
+        p
+          = t('relationship.follower')
+      div
+        p
+          = @user.following.count
+        p
+          = t('relationship.following')
+
+    .user__photos
+      - @user.posts.each do |post|
+        - if post.photo.attached?
+          .thumbnail-photo-wrapper
+            = image_tag post.photo, loading: 'lazy', class: "thumbnail-photo"
+- else
+  section.user
+    .user__flex-box
+      .user__fullname-box
+        div
+          - if @user.avatar.attached?
+            div.user__avatar
+              = image_tag @user.avatar, class: 'user__avatar'
+          - else
+            div.user__avatar
+              = image_tag "user-alt-solid.svg", loading: 'lazy', class: 'user__avatar'
+          p.user__fullname
+            = @user.full_name
+        div
+          .user__name-edit-group
+            h2
+              = @user.user_name
+
+    .user__follows
+      div
+        p
+          = @user.posts.count
+        p
+          = t('relationship.posts')
+      div
+        p
+          = @user.followers.count
+        p
+          = t('relationship.follower')
+      div
+        p
+          = @user.following.count
+        p
+          = t('relationship.following')
+
+    .user__photos
+      - @user.posts.each do |post|
+        - if post.photo.attached?
+          .thumbnail-photo-wrapper
+            = image_tag post.photo, loading: 'lazy', class: "thumbnail-photo"

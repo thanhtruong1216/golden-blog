@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    meta content=('text/html; charset=UTF-8') http-equiv='Content-Type'
+    title Wandergram
+    = csrf_meta_tags
+    = csp_meta_tag
+    = yield :meta
+    meta content='width=device-width, initial-scale=1.0' name='viewport'
+
+    link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet"
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = favicon_link_tag asset_path('ms-icon-310x310.ico')
+  body
+    div
+      = render 'layouts/desktop_header'
+      = render 'layouts/mobile_header'
+      - flash.each do |message_type, message|
+        div class=('alert alert-#{message_type}') = message
+      = yield
+      = render 'layouts/footer'
+
+    #fb-root
+
+script
+  |
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));

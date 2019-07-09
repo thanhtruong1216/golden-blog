@@ -1,0 +1,86 @@
+@import "mixins"
+@import "variables"
+
+article
+  h1
+    text-align: center
+  p
+    padding-top: 20pt
+
+.desktop-header
+  display: none
+  position: fixed
+  z-index: 9999
+  background-color: white
+  width: 100vw
+  padding: 0 20pt
+  border-bottom: $border-line
+  &__wrapper
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 10pt 0
+    max-width: 900pt
+    margin: 0 auto 0 auto
+    > div:first-child
+      flex: 1
+      display: flex
+      align-items: center
+    form
+      input[type='submit']
+        display: none
+
+    ul
+      list-style: none
+      display: flex
+      flex: 1
+      justify-content: center
+      margin: 0
+      li
+        padding-right: 15pt
+    > div:last-child
+      a
+        padding-left: 5pt
+        white-space: nowrap
+
+  &__search
+    border: $border-line
+    height: 35pt
+    input
+      border: none
+    > div
+      position: relative
+      bottom: 20pt
+      left: 25%
+    .search-icon
+      width: 20pt
+
+.mobile-header
+  display: flex
+  align-items: center
+  position: fixed
+  width: 100vw
+  background-color: white
+  z-index: 9999
+  justify-content: space-between
+  border: $border-line
+  padding: 10pt 20pt
+  &__text
+    font-size: 20pt
+  h1
+    margin: 0
+
+@media screen and (min-width: 769px)
+  .mobile-header
+    display: none
+
+  .desktop-header
+    display: block
+    .form-inline
+      .form-group
+        margin-bottom: -10pt
+
+
+@media screen and (min-width: 1023px)
+  .desktop-header
+    padding: 0 50pt

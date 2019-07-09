@@ -1,0 +1,4 @@
+= simple_form_for :search, url: search_users_path, method: "GET", html: { class: 'form-inline' } do |f|
+  = f.input :user_name, input_html: { value: "" }, label: false
+  = f.submit "Search", class: "btn btn-primary" do
+    / = image_tag 'search-solid.svg', loading: 'lazy', class: 'mini-icon'

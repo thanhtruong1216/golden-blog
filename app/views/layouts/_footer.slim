@@ -1,0 +1,10 @@
+footer.footer
+  .footer__box
+    = link_to root_path do
+      = image_tag "home-solid.svg", loading: 'lazy', class: "small-icon"
+  .footer__box
+    = link_to new_post_path do
+      = image_tag "plus-square-regular.svg", loading: 'lazy', class: "small-icon"
+  .footer__box
+    = link_to current_user do
+      = image_tag "user-alt-solid.svg", loading: 'lazy', class: "small-icon"

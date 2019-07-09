@@ -1,0 +1,3 @@
+jQuery(".post__comments").append("<%= j render "comments/comment", post: @post, comment: @comment %>");
+jQuery(".posts__comments-count").html("<%= j render "comments/comments_count", post: @post, comment: @comment %>");
+jQuery("#comment-content").val("");
